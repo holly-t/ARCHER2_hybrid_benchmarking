@@ -1,0 +1,162 @@
+LAMMPS (29 Sep 2021 - Update 2)
+  using 4 OpenMP thread(s) per MPI task
+Reading data file ...
+  orthogonal box = (-218.01312 -224.98158 -73.417662) to (218.01312 224.98158 73.417662)
+  4 by 8 by 2 MPI processor grid
+  reading atoms ...
+  2997924 atoms
+  reading velocities ...
+  2997924 velocities
+  scanning bonds ...
+  4 = max bonds/atom
+  scanning angles ...
+  6 = max angles/atom
+  scanning dihedrals ...
+  36 = max dihedrals/atom
+  scanning impropers ...
+  2 = max impropers/atom
+  reading bonds ...
+  2310204 bonds
+  reading angles ...
+  2497550 angles
+  reading dihedrals ...
+  2964012 dihedrals
+  reading impropers ...
+  28260 impropers
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        0        0       
+  special bond factors coul:  0        0        0       
+     4 = max # of 1-2 neighbors
+    12 = max # of 1-3 neighbors
+    19 = max # of 1-4 neighbors
+    21 = max # of special neighbors
+  special bonds CPU = 0.745 seconds
+  read_data CPU = 17.789 seconds
+Finding SHAKE clusters ...
+   34924 = # of size 2 clusters
+  216000 = # of size 3 clusters
+   35668 = # of size 4 clusters
+  680410 = # of frozen angles
+  find clusters CPU = 0.023 seconds
+PPPM initialization ...
+  using 12-bit tables for long-range coulomb (src/kspace.cpp:340)
+  G vector (1/distance) = 0.20978357
+  grid = 150 160 64
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.040128925
+  estimated relative force accuracy = 0.00012084707
+  using double precision FFTW3
+  3d grid and FFT values/proc = 39775 24320
+Neighbor list info ...
+  update every 1 steps, delay 0 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 14
+  ghost atom cutoff = 14
+  binsize = 7, bins = 63 65 21
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair lj/charmm/coul/long/opt, perpetual
+      attributes: half, newton on
+      pair build: half/bin/newton
+      stencil: half/bin/3d
+      bin: standard
+Setting up Verlet run ...
+  Unit style    : real
+  Current step  : 0
+  Time step     : 2
+Per MPI rank memory allocation (min/avg/max) = 306.4 | 309.0 | 312.5 Mbytes
+---------------- Step        0 ----- CPU =      0.0000 (sec) ----------------
+TotEng   =  -5198527.1898 KinEng   =   1900046.9846 Temp     =       299.7955 
+PotEng   =  -7098574.1743 E_bond   =    106470.9532 E_angle  =    555576.1131 
+E_dihed  =    249732.3951 E_impro  =      6486.5045 E_vdwl   =    322655.5854 
+E_coul   =  22202828.1578 E_long   = -30542323.8834 Press    =        40.6963 
+Volume   =  28808466.4245 
+---------------- Step     1000 ----- CPU =    531.9297 (sec) ----------------
+TotEng   =  -5199559.2136 KinEng   =   1901405.9392 Temp     =       300.0100 
+PotEng   =  -7100965.1527 E_bond   =    106193.9727 E_angle  =    556624.7347 
+E_dihed  =    249536.0399 E_impro  =      6524.1498 E_vdwl   =    318901.9380 
+E_coul   =  22203752.5803 E_long   = -30542498.5682 Press    =        30.5887 
+Volume   =  28781326.2471 
+---------------- Step     2000 ----- CPU =   1063.1918 (sec) ----------------
+TotEng   =  -5199842.1412 KinEng   =   1902443.8680 Temp     =       300.1737 
+PotEng   =  -7102286.0093 E_bond   =    106187.3437 E_angle  =    556191.8706 
+E_dihed  =    249070.7117 E_impro  =      6355.7549 E_vdwl   =    320658.7198 
+E_coul   =  22201591.3318 E_long   = -30542341.7417 Press    =        33.4807 
+Volume   =  28791092.8560 
+---------------- Step     3000 ----- CPU =   1593.5590 (sec) ----------------
+TotEng   =  -5201358.3825 KinEng   =   1900243.9785 Temp     =       299.8266 
+PotEng   =  -7101602.3610 E_bond   =    106287.4340 E_angle  =    555904.5044 
+E_dihed  =    249631.5821 E_impro  =      6421.2476 E_vdwl   =    318905.6223 
+E_coul   =  22203634.2249 E_long   = -30542386.9763 Press    =        -8.1419 
+Volume   =  28780604.0298 
+---------------- Step     4000 ----- CPU =   2123.1535 (sec) ----------------
+TotEng   =  -5200081.9230 KinEng   =   1901496.3098 Temp     =       300.0242 
+PotEng   =  -7101578.2329 E_bond   =    106152.7944 E_angle  =    556295.7655 
+E_dihed  =    249472.6100 E_impro  =      6392.1968 E_vdwl   =    321210.5368 
+E_coul   =  22201313.1990 E_long   = -30542415.3353 Press    =        14.8163 
+Volume   =  28785284.5734 
+---------------- Step     5000 ----- CPU =   2650.5903 (sec) ----------------
+TotEng   =  -5202120.3311 KinEng   =   1901190.8549 Temp     =       299.9760 
+PotEng   =  -7103311.1860 E_bond   =    106425.6969 E_angle  =    556668.7036 
+E_dihed  =    249240.1321 E_impro  =      6437.0324 E_vdwl   =    322491.4870 
+E_coul   =  22197825.7082 E_long   = -30542399.9462 Press    =         3.4404 
+Volume   =  28787188.8317 
+---------------- Step     6000 ----- CPU =   3180.0743 (sec) ----------------
+TotEng   =  -5200957.3095 KinEng   =   1900492.8614 Temp     =       299.8659 
+PotEng   =  -7101450.1709 E_bond   =    106435.1156 E_angle  =    556016.2355 
+E_dihed  =    248932.2255 E_impro  =      6412.0079 E_vdwl   =    321362.9401 
+E_coul   =  22201777.4304 E_long   = -30542386.1260 Press    =        28.4869 
+Volume   =  28791480.9004 
+---------------- Step     7000 ----- CPU =   3709.0920 (sec) ----------------
+TotEng   =  -5201530.7187 KinEng   =   1901195.9861 Temp     =       299.9768 
+PotEng   =  -7102726.7048 E_bond   =    106177.2940 E_angle  =    556276.6951 
+E_dihed  =    249800.8791 E_impro  =      6450.8484 E_vdwl   =    322650.6936 
+E_coul   =  22198268.6954 E_long   = -30542351.8103 Press    =        23.2969 
+Volume   =  28785252.3831 
+---------------- Step     8000 ----- CPU =   4236.3817 (sec) ----------------
+TotEng   =  -5199967.9038 KinEng   =   1900760.7616 Temp     =       299.9082 
+PotEng   =  -7100728.6653 E_bond   =    106560.8958 E_angle  =    556590.6317 
+E_dihed  =    248787.5632 E_impro  =      6426.9818 E_vdwl   =    321082.3080 
+E_coul   =  22202279.5427 E_long   = -30542456.5884 Press    =         3.6932 
+Volume   =  28786383.3184 
+---------------- Step     9000 ----- CPU =   4761.4744 (sec) ----------------
+TotEng   =  -5201786.6983 KinEng   =   1902518.4082 Temp     =       300.1855 
+PotEng   =  -7104305.1065 E_bond   =    106207.0025 E_angle  =    556240.3132 
+E_dihed  =    249245.9629 E_impro  =      6437.9278 E_vdwl   =    319985.3619 
+E_coul   =  22199937.9177 E_long   = -30542359.5924 Press    =        -3.9465 
+Volume   =  28776826.4580 
+---------------- Step    10000 ----- CPU =   5288.6938 (sec) ----------------
+TotEng   =  -5200333.7310 KinEng   =   1900474.4939 Temp     =       299.8630 
+PotEng   =  -7100808.2249 E_bond   =    106458.7042 E_angle  =    557526.6788 
+E_dihed  =    249328.5797 E_impro  =      6410.1830 E_vdwl   =    321817.5050 
+E_coul   =  22200020.7909 E_long   = -30542370.6666 Press    =         2.2761 
+Volume   =  28791374.3586 
+Loop time of 5288.69 on 256 procs for 10000 steps with 2997924 atoms
+
+Performance: 0.327 ns/day, 73.454 hours/ns, 1.891 timesteps/s
+110.2% CPU use with 64 MPI tasks x 4 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 3684.2     | 3770.8     | 3890.4     |  71.8 | 71.30
+Bond    | 36.156     | 55.813     | 81.528     | 146.0 |  1.06
+Kspace  | 221.11     | 365.78     | 468.72     | 277.6 |  6.92
+Neigh   | 940.24     | 940.91     | 941.47     |   0.8 | 17.79
+Comm    | 29.626     | 30.875     | 32.144     |  12.3 |  0.58
+Output  | 5.2258     | 5.2259     | 5.2264     |   0.0 |  0.10
+Modify  | 107.93     | 112.95     | 114.07     |   7.4 |  2.14
+Other   |            | 6.341      |            |       |  0.12
+
+Nlocal:        46842.6 ave       47603 max       46404 min
+Histogram: 8 6 14 9 8 11 3 3 0 2
+Nghost:        74992.3 ave       75693 max       74115 min
+Histogram: 2 3 6 3 10 11 12 7 7 3
+Neighs:    2.80412e+07 ave  2.8808e+07 max 2.74309e+07 min
+Histogram: 7 6 5 8 14 7 9 3 1 4
+
+Total # of neighbors = 1.7946338e+09
+Ave neighs/atom = 598.62551
+Ave special neighs/atom = 4.8989434
+Neighbor list builds = 1371
+Dangerous builds = 0
+Total wall time: 1:28:28

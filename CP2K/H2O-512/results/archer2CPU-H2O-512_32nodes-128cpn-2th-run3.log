@@ -1,0 +1,818 @@
+ DBCSR| CPU Multiplication driver                                           BLAS
+ DBCSR| Multrec recursion limit                                              512
+ DBCSR| Multiplication stack size                                           1000
+ DBCSR| Maximum elements for images                                    UNLIMITED
+ DBCSR| Multiplicative factor virtual images                                   1
+ DBCSR| Use multiplication densification                                       T
+ DBCSR| Multiplication size stacks                                             3
+ DBCSR| Use memory pool for CPU allocation                                     F
+ DBCSR| Number of 3D layers                                               SINGLE
+ DBCSR| Use MPI memory allocation                                              F
+ DBCSR| Use RMA algorithm                                                      F
+ DBCSR| Use Communication thread                                               T
+ DBCSR| Communication thread load                                             83
+ DBCSR| MPI: My node id                                                        0
+ DBCSR| MPI: Number of nodes                                                2048
+ DBCSR| OMP: Current number of threads                                         2
+ DBCSR| OMP: Max number of threads                                             2
+ DBCSR| Split modifier for TAS multiplication algorithm                  1.0E+00
+
+
+  **** **** ******  **  PROGRAM STARTED AT               2022-01-20 10:51:16.645
+ ***** ** ***  *** **   PROGRAM STARTED ON                             nid001990
+ **    ****   ******    PROGRAM STARTED BY                                hjudge
+ ***** **    ** ** **   PROGRAM PROCESS ID                                161059
+  **** **  *******  **  PROGRAM STARTED IN /mnt/lustre/a2fs-work2/work/z19/z19/h
+                                           judge/CUG/archer2/CPU/CP2K/H2O-512/32
+                                           NODES/128CPN/2THREADS
+
+ CP2K| version string:                                          CP2K version 8.2
+ CP2K| source code revision number:                                  git:310b7ab
+ CP2K| cp2kflags: omp libint fftw3 libxc elpa parallel mpi3 scalapack plumed2   
+ CP2K| is freely available from                            https://www.cp2k.org/
+ CP2K| Program compiled at                          Thu Dec  2 10:30:45 GMT 2021
+ CP2K| Program compiled on                                                  ln02
+ CP2K| Program compiled for                                              ARCHER2
+ CP2K| Data directory path         /work/y07/shared/apps/core/cp2k/cp2k-8.2/data
+ CP2K| Input file name                                               H2O-512.inp
+
+ GLOBAL| Force Environment number                                              1
+ GLOBAL| Basis set file name                                      GTH_BASIS_SETS
+ GLOBAL| Potential file name                                           POTENTIAL
+ GLOBAL| MM Potential file name                                     MM_POTENTIAL
+ GLOBAL| Coordinate file name                                      __STD_INPUT__
+ GLOBAL| Method name                                                        CP2K
+ GLOBAL| Project name                                                    H2O-512
+ GLOBAL| Run type                                                             MD
+ GLOBAL| FFT library                                                       FFTW3
+ GLOBAL| Diagonalization library                                            ELPA
+ GLOBAL| Minimum number of eigenvectors for ELPA usage                        16
+ GLOBAL| Orthonormality check for eigenvectors                          DISABLED
+ GLOBAL| Matrix multiplication library                                    SCALAP
+ GLOBAL| All-to-all communication in single precision                          F
+ GLOBAL| FFTs using library dependent lengths                                  F
+ GLOBAL| Grid backend                                                       AUTO
+ GLOBAL| Global print level                                                  LOW
+ GLOBAL| MPI I/O enabled                                                       T
+ GLOBAL| Total number of message passing processes                          2048
+ GLOBAL| Number of threads for this process                                    2
+ GLOBAL| This output is from process                                           0
+ GLOBAL| CPU model name                          AMD EPYC 7742 64-Core Processor
+ GLOBAL| CPUID                                                              1002
+
+ MEMORY| system memory details [Kb]
+ MEMORY|                        rank 0           min           max       average
+ MEMORY| MemTotal            263528088     263528084     263528088     263528087
+ MEMORY| MemFree             245750416     245133608     246561428     245765275
+ MEMORY| Buffers                 36204         28824        313424         59752
+ MEMORY| Cached                1055132        669624       1945704       1171345
+ MEMORY| Slab                  1650652       1442448       1665972       1604154
+ MEMORY| SReclaimable           100992         88488        173628        106269
+ MEMORY| MemLikelyFree       246942744     246849304     248012012     247102642
+
+
+ GENERATE|  Preliminary Number of Bonds generated:                             0
+ GENERATE|  Achieved consistency in connectivity generation.
+
+ *******************************************************************************
+ *******************************************************************************
+ **                                                                           **
+ **     #####                         ##              ##                      **
+ **    ##   ##            ##          ##              ##                      **
+ **   ##     ##                       ##            ######                    **
+ **   ##     ##  ##   ##  ##   #####  ##  ##   ####   ##    #####    #####    **
+ **   ##     ##  ##   ##  ##  ##      ## ##   ##      ##   ##   ##  ##   ##   **
+ **   ##  ## ##  ##   ##  ##  ##      ####     ###    ##   ######   ######    **
+ **    ##  ###   ##   ##  ##  ##      ## ##      ##   ##   ##       ##        **
+ **     #######   #####   ##   #####  ##  ##  ####    ##    #####   ##        **
+ **           ##                                                    ##        **
+ **                                                                           **
+ **                                                ... make the atoms dance   **
+ **                                                                           **
+ **            Copyright (C) by CP2K developers group (2000-2021)             **
+ **                      J. Chem. Phys. 152, 194103 (2020)                    **
+ **                                                                           **
+ *******************************************************************************
+
+
+ TOTAL NUMBERS AND MAXIMUM NUMBERS
+
+  Total number of            - Atomic kinds:                                   2
+                             - Atoms:                                       1536
+                             - Shell sets:                                  3072
+                             - Shells:                                      9216
+                             - Primitive Cartesian functions:              10752
+                             - Cartesian basis functions:                  21504
+                             - Spherical basis functions:                  20480
+
+  Maximum angular momentum of- Orbital basis functions:                        2
+                             - Local part of the GTH pseudopotential:          2
+                             - Non-local part of the GTH pseudopotential:      0
+
+
+ SCF PARAMETERS         Density guess:                                    ATOMIC
+                        --------------------------------------------------------
+                        max_scf:                                              50
+                        max_scf_history:                                       0
+                        max_diis:                                              4
+                        --------------------------------------------------------
+                        eps_scf:                                        1.00E-05
+                        eps_scf_history:                                0.00E+00
+                        eps_diis:                                       1.00E-01
+                        eps_eigval:                                     1.00E-05
+                        --------------------------------------------------------
+                        level_shift [a.u.]:                                 0.00
+                        --------------------------------------------------------
+                        No outer SCF
+
+ MD_PAR| Molecular dynamics protocol (MD input parameters)
+ MD_PAR| Ensemble type                                                       NVE
+ MD_PAR| Number of time steps                                                 10
+ MD_PAR| Time step [fs]                                                 0.500000
+ MD_PAR| Temperature [K]                                              300.000000
+ MD_PAR| Temperature tolerance [K]                                      0.000000
+ MD_PAR| Print MD information every                                    1 step(s)
+ MD_PAR| File type   Print frequency [steps]                          File names
+ MD_PAR| Coordinates          1                                H2O-512-pos-1.xyz
+ MD_PAR| Velocities           1                                H2O-512-vel-1.xyz
+ MD_PAR| Energies             1                                   H2O-512-1.ener
+ MD_PAR| Dump                20                                H2O-512-1.restart
+
+ ROT| Rotational analysis information
+ ROT| Principal axes and moments of inertia [a.u.]
+ ROT|                           1                   2                   3
+ ROT| Eigenvalues      6.12011925703E+09   6.17734003456E+09   6.32378668800E+09
+ ROT|      x              0.229702356692      0.883899672739      0.407379670409
+ ROT|      y              0.711719446246      0.132949289019     -0.689768016354
+ ROT|      z              0.663846561462     -0.448381372362      0.598549820611
+ ROT| Number of rotovibrational vectors                                        6
+
+ DOF| Calculation of degrees of freedom
+ DOF| Number of atoms                                                       1536
+ DOF| Number of intramolecular constraints                                     0
+ DOF| Number of intermolecular constraints                                     0
+ DOF| Invariants (translations + rotations)                                    3
+ DOF| Degrees of freedom                                                    4605
+
+ DOF| Restraints information
+ DOF| Number of intramolecular restraints                                      0
+ DOF| Number of intermolecular restraints                                      0
+
+ MD_VEL| Velocities initialization
+ MD_VEL| Initial temperature [K]                                      300.000000
+ MD_VEL| COM velocity             0.0000000000    -0.0000000000     0.0000000000
+
+ Number of electrons:                                                       4096
+ Number of occupied orbitals:                                               2048
+ Number of molecular orbitals:                                              2048
+
+ Number of orbital functions:                                              20480
+ Number of independent orbital functions:                                  20480
+
+ Extrapolation method: initial_guess
+
+
+ SCF WAVEFUNCTION OPTIMIZATION
+
+  ----------------------------------- OT ---------------------------------------
+  Minimizer      : DIIS                : direct inversion
+                                         in the iterative subspace
+                                         using   7 DIIS vectors
+                                         safer DIIS on
+  Preconditioner : FULL_KINETIC        : inversion of T + eS
+  Precond_solver : DEFAULT
+  stepsize       :    0.15000000                  energy_gap     :    0.20000000
+  eps_taylor     :   0.10000E-15                  max_taylor     :             4
+  ----------------------------------- OT ---------------------------------------
+
+  Step     Update method      Time    Convergence         Total energy    Change
+  ------------------------------------------------------------------------------
+     1 OT DIIS     0.15E+00   45.6     0.00467324     -8480.4728425690 -8.48E+03
+     2 OT DIIS     0.15E+00    0.7     0.00318266     -8587.4488310143 -1.07E+02
+     3 OT DIIS     0.15E+00    0.7     0.00347210     -8644.7931966768 -5.73E+01
+     4 OT DIIS     0.15E+00    0.7     0.00204380     -8678.2157923835 -3.34E+01
+     5 OT DIIS     0.15E+00    0.7     0.00148292     -8717.4624183879 -3.92E+01
+     6 OT DIIS     0.15E+00    0.7     0.00119954     -8738.7795043572 -2.13E+01
+     7 OT DIIS     0.15E+00    0.7     0.00099038     -8755.0185947301 -1.62E+01
+     8 OT DIIS     0.15E+00    0.7     0.00079894     -8767.5347825454 -1.25E+01
+     9 OT DIIS     0.15E+00    0.7     0.00061581     -8780.1862563834 -1.27E+01
+    10 OT DIIS     0.15E+00    0.7     0.00048147     -8788.6147471043 -8.43E+00
+    11 OT DIIS     0.15E+00    0.7     0.00038278     -8794.1215228889 -5.51E+00
+    12 OT DIIS     0.15E+00    0.8     0.00031960     -8797.5363589594 -3.41E+00
+    13 OT DIIS     0.15E+00    0.7     0.00026435     -8799.9344030908 -2.40E+00
+    14 OT DIIS     0.15E+00    0.7     0.00023004     -8801.7089305035 -1.77E+00
+    15 OT DIIS     0.15E+00    0.7     0.00019592     -8803.0697888564 -1.36E+00
+    16 OT DIIS     0.15E+00    0.7     0.00016642     -8804.2000843411 -1.13E+00
+    17 OT DIIS     0.15E+00    0.7     0.00014164     -8805.0506655806 -8.51E-01
+    18 OT DIIS     0.15E+00    0.7     0.00012638     -8805.6725421207 -6.22E-01
+    19 OT DIIS     0.15E+00    0.7     0.00010717     -8806.2171485645 -5.45E-01
+    20 OT DIIS     0.15E+00    0.8     0.00009868     -8806.5290018964 -3.12E-01
+    21 OT DIIS     0.15E+00    0.7     0.00008484     -8806.8772741195 -3.48E-01
+    22 OT DIIS     0.15E+00    0.7     0.00007717     -8807.0943334427 -2.17E-01
+    23 OT DIIS     0.15E+00    0.8     0.00006815     -8807.2974129499 -2.03E-01
+    24 OT DIIS     0.15E+00    0.7     0.00006019     -8807.4529078233 -1.55E-01
+    25 OT DIIS     0.15E+00    0.7     0.00005010     -8807.5989834234 -1.46E-01
+    26 OT DIIS     0.15E+00    0.7     0.00004000     -8807.6989662228 -1.00E-01
+    27 OT DIIS     0.15E+00    0.7     0.00003462     -8807.7827122402 -8.37E-02
+    28 OT DIIS     0.15E+00    0.7     0.00003071     -8807.7824932500  2.19E-04
+    29 OT DIIS     0.15E+00    0.7     0.00002690     -8807.8200993195 -3.76E-02
+    30 OT DIIS     0.15E+00    0.7     0.00002500     -8807.8399634017 -1.99E-02
+    31 OT DIIS     0.15E+00    0.7     0.00002395     -8807.8566460922 -1.67E-02
+    32 OT DIIS     0.15E+00    0.7     0.00002328     -8807.8682689643 -1.16E-02
+    33 OT DIIS     0.15E+00    0.7     0.00002304     -8807.8827275965 -1.45E-02
+    34 OT DIIS     0.15E+00    0.7     0.00002300     -8807.8854890297 -2.76E-03
+    35 OT SD       0.15E+00    0.7     0.00002301     -8807.8907467596 -5.26E-03
+    36 OT SD       0.15E+00    0.9     0.00002308     -8807.8940817096 -3.33E-03
+    37 OT SD       0.15E+00    0.7     0.00002318     -8807.8974407043 -3.36E-03
+    38 OT SD       0.15E+00    0.7     0.00002329     -8807.9008284718 -3.39E-03
+    39 OT SD       0.15E+00    0.7     0.00002341     -8807.9042491083 -3.42E-03
+    40 OT SD       0.15E+00    0.7     0.00002354     -8807.9077063659 -3.46E-03
+    41 OT SD       0.15E+00    0.7     0.00002369     -8807.9112037365 -3.50E-03
+    42 OT SD       0.15E+00    0.7     0.00002384     -8807.9147444866 -3.54E-03
+    43 OT SD       0.15E+00    0.7     0.00002400     -8807.9183316715 -3.59E-03
+    44 OT SD       0.15E+00    0.7     0.00002417     -8807.9219681410 -3.64E-03
+    45 OT DIIS     0.15E+00    0.7     0.00002435     -8807.9256565391 -3.69E-03
+    46 OT DIIS     0.15E+00    0.7     0.00004963     -8807.9134054038  1.23E-02
+    47 OT SD       0.15E+00    0.7     0.00005090     -8807.9142424094 -8.37E-04
+    48 OT SD       0.15E+00    0.7     0.00004015     -8807.9285068601 -1.43E-02
+    49 OT SD       0.15E+00    0.7     0.00003559     -8807.9379877411 -9.48E-03
+    50 OT SD       0.15E+00    0.7     0.00003336     -8807.9456665020 -7.68E-03
+
+  Leaving inner SCF loop after reaching    50 steps.
+
+
+  Electronic density on regular grids:      -4096.0000074604       -0.0000074604
+  Core density on regular grids:             4095.9999999927       -0.0000000073
+  Total charge density on r-space grids:       -0.0000074677
+  Total charge density g-space grids:          -0.0000074677
+
+  Overlap energy of the core charge distribution:               0.00004500798551
+  Self energy of the core charge distribution:             -22442.43995950839599
+  Core Hamiltonian energy:                                   6603.78894743400633
+  Hartree energy:                                            9161.23632702262148
+  Exchange-correlation energy:                              -2130.53102645824583
+
+  Total energy:                                             -8807.94566650202796
+
+ *** WARNING in qs_scf.F:576 :: SCF run NOT converged ***
+
+
+ ENERGY| Total FORCE_EVAL ( QS ) energy [a.u.]:            -8807.952529496418720
+
+ MD_INI| MD initialization
+ MD_INI| Potential energy [hartree]                          -0.880795252950E+04
+ MD_INI| Kinetic energy [hartree]                             0.218747769838E+01
+ MD_INI| Temperature [K]                                              300.000000
+ MD_INI| Cell volume [bohr^3]                                 1.037187315243E+05
+ MD_INI| Cell volume [ang^3]                                  1.536953010365E+04
+ MD_INI| Cell lengths [bohr]      4.69842608E+01  4.69842608E+01  4.69842608E+01
+ MD_INI| Cell lengths [ang]       2.48630000E+01  2.48630000E+01  2.48630000E+01
+ MD_INI| Cell angles [deg]        9.00000000E+01  9.00000000E+01  9.00000000E+01
+
+ Number of electrons:                                                       4096
+ Number of occupied orbitals:                                               2048
+ Number of molecular orbitals:                                              2048
+
+ Number of orbital functions:                                              20480
+ Number of independent orbital functions:                                  20480
+
+ Extrapolation method: PS Nth order
+ Extrapolation order:  0
+
+
+ SCF WAVEFUNCTION OPTIMIZATION
+
+  ----------------------------------- OT ---------------------------------------
+  Minimizer      : DIIS                : direct inversion
+                                         in the iterative subspace
+                                         using   7 DIIS vectors
+                                         safer DIIS on
+  Preconditioner : FULL_KINETIC        : inversion of T + eS
+  Precond_solver : DEFAULT
+  stepsize       :    0.15000000                  energy_gap     :    0.20000000
+  eps_taylor     :   0.10000E-15                  max_taylor     :             4
+  ----------------------------------- OT ---------------------------------------
+
+  Step     Update method      Time    Convergence         Total energy    Change
+  ------------------------------------------------------------------------------
+     1 OT DIIS     0.15E+00    2.1     0.00010167     -8807.9545785436 -8.81E+03
+     2 OT DIIS     0.15E+00    0.5     0.00007399     -8808.0093289288 -5.48E-02
+     3 OT DIIS     0.15E+00    0.5     0.00005493     -8808.0647179002 -5.54E-02
+     4 OT DIIS     0.15E+00    0.5     0.00004933     -8808.1021325612 -3.74E-02
+     5 OT DIIS     0.15E+00    0.7     0.00004590     -8808.1450596919 -4.29E-02
+     6 OT DIIS     0.15E+00    0.7     0.00004349     -8808.1872441529 -4.22E-02
+     7 OT DIIS     0.15E+00    0.7     0.00003910     -8808.2475958271 -6.04E-02
+     8 OT DIIS     0.15E+00    0.7     0.00002829     -8808.3274166753 -7.98E-02
+     9 OT DIIS     0.15E+00    0.7     0.00002026     -8808.3586659148 -3.12E-02
+    10 OT DIIS     0.15E+00    0.7     0.00001287     -8808.3785368296 -1.99E-02
+    11 OT DIIS     0.15E+00    0.7     0.00001026     -8808.3792642862 -7.27E-04
+    12 OT DIIS     0.15E+00    0.7     0.00000705     -8808.3828061202 -3.54E-03
+
+  *** SCF run converged in    12 steps ***
+
+
+  Electronic density on regular grids:      -4096.0000079114       -0.0000079114
+  Core density on regular grids:             4095.9999999916       -0.0000000084
+  Total charge density on r-space grids:       -0.0000079198
+  Total charge density g-space grids:          -0.0000079198
+
+  Overlap energy of the core charge distribution:               0.00004378131946
+  Self energy of the core charge distribution:             -22442.43995950839599
+  Core Hamiltonian energy:                                   6601.18530283635664
+  Hartree energy:                                            9162.93996075011455
+  Exchange-correlation energy:                              -2130.06815397962009
+
+  Total energy:                                             -8808.38280612022754
+
+ ENERGY| Total FORCE_EVAL ( QS ) energy [a.u.]:            -8808.383482342844218
+
+ MD| ***************************************************************************
+ MD| Step number                                                               1
+ MD| Time [fs]                                                          0.500000
+ MD| Conserved quantity [hartree]                            -0.880615757162E+04
+ MD| ---------------------------------------------------------------------------
+ MD|                                          Instantaneous             Averages
+ MD| CPU time per MD step [s]                    128.203577           128.203577
+ MD| Energy drift per atom [K]          -0.806951875158E+02   0.000000000000E+00
+ MD| Potential energy [hartree]         -0.880838348234E+04  -0.880838348234E+04
+ MD| Kinetic energy [hartree]            0.222591072458E+01   0.222591072458E+01
+ MD| Temperature [K]                             305.270869           305.270869
+ MD| ***************************************************************************
+
+ Number of electrons:                                                       4096
+ Number of occupied orbitals:                                               2048
+ Number of molecular orbitals:                                              2048
+
+ Number of orbital functions:                                              20480
+ Number of independent orbital functions:                                  20480
+
+ Extrapolation method: PS Nth order
+ Extrapolation order:  1
+
+
+ SCF WAVEFUNCTION OPTIMIZATION
+
+  ----------------------------------- OT ---------------------------------------
+  Minimizer      : DIIS                : direct inversion
+                                         in the iterative subspace
+                                         using   7 DIIS vectors
+                                         safer DIIS on
+  Preconditioner : FULL_KINETIC        : inversion of T + eS
+  Precond_solver : DEFAULT
+  stepsize       :    0.15000000                  energy_gap     :    0.20000000
+  eps_taylor     :   0.10000E-15                  max_taylor     :             4
+  ----------------------------------- OT ---------------------------------------
+
+  Step     Update method      Time    Convergence         Total energy    Change
+  ------------------------------------------------------------------------------
+     1 OT DIIS     0.15E+00    2.1     0.00008001     -8808.4313106159 -8.81E+03
+     2 OT DIIS     0.15E+00    0.5     0.00005271     -8808.4637458872 -3.24E-02
+     3 OT DIIS     0.15E+00    0.5     0.00003321     -8808.4886511168 -2.49E-02
+     4 OT DIIS     0.15E+00    0.5     0.00002251     -8808.5029463787 -1.43E-02
+     5 OT DIIS     0.15E+00    0.5     0.00001406     -8808.5119295589 -8.98E-03
+     6 OT DIIS     0.15E+00    0.5     0.00000837     -8808.5159230684 -3.99E-03
+
+  *** SCF run converged in     6 steps ***
+
+
+  Electronic density on regular grids:      -4096.0000084062       -0.0000084062
+  Core density on regular grids:             4095.9999999941       -0.0000000059
+  Total charge density on r-space grids:       -0.0000084121
+  Total charge density g-space grids:          -0.0000084121
+
+  Overlap energy of the core charge distribution:               0.00003948979036
+  Self energy of the core charge distribution:             -22442.43995950839599
+  Core Hamiltonian energy:                                   6592.75633774296512
+  Hartree energy:                                            9168.97934353493474
+  Exchange-correlation energy:                              -2127.81168432773666
+
+  Total energy:                                             -8808.51592306844213
+
+ ENERGY| Total FORCE_EVAL ( QS ) energy [a.u.]:            -8808.517234659790120
+
+ MD| ***************************************************************************
+ MD| Step number                                                               2
+ MD| Time [fs]                                                          1.000000
+ MD| Conserved quantity [hartree]                            -0.880616181933E+04
+ MD| ---------------------------------------------------------------------------
+ MD|                                          Instantaneous             Averages
+ MD| CPU time per MD step [s]                      7.855621            68.029599
+ MD| Energy drift per atom [K]          -0.815684431424E+02  -0.407842215712E+02
+ MD| Potential energy [hartree]         -0.880851723466E+04  -0.880845035850E+04
+ MD| Kinetic energy [hartree]            0.235541532674E+01   0.229066302566E+01
+ MD| Temperature [K]                             323.031681           314.151275
+ MD| ***************************************************************************
+
+ Number of electrons:                                                       4096
+ Number of occupied orbitals:                                               2048
+ Number of molecular orbitals:                                              2048
+
+ Number of orbital functions:                                              20480
+ Number of independent orbital functions:                                  20480
+
+ Extrapolation method: PS Nth order
+ Extrapolation order:  2
+
+
+ SCF WAVEFUNCTION OPTIMIZATION
+
+  ----------------------------------- OT ---------------------------------------
+  Minimizer      : DIIS                : direct inversion
+                                         in the iterative subspace
+                                         using   7 DIIS vectors
+                                         safer DIIS on
+  Preconditioner : FULL_KINETIC        : inversion of T + eS
+  Precond_solver : DEFAULT
+  stepsize       :    0.15000000                  energy_gap     :    0.20000000
+  eps_taylor     :   0.10000E-15                  max_taylor     :             4
+  ----------------------------------- OT ---------------------------------------
+
+  Step     Update method      Time    Convergence         Total energy    Change
+  ------------------------------------------------------------------------------
+     1 OT DIIS     0.15E+00    2.1     0.00008987     -8808.3717439460 -8.81E+03
+     2 OT DIIS     0.15E+00    0.5     0.00007427     -8808.4174374714 -4.57E-02
+     3 OT DIIS     0.15E+00    0.5     0.00005876     -8808.4862017734 -6.88E-02
+     4 OT DIIS     0.15E+00    0.5     0.00004979     -8808.5436855157 -5.75E-02
+     5 OT DIIS     0.15E+00    0.5     0.00004006     -8808.6033842145 -5.97E-02
+     6 OT DIIS     0.15E+00    0.7     0.00002840     -8808.6545535687 -5.12E-02
+     7 OT DIIS     0.15E+00    0.7     0.00001854     -8808.6820984623 -2.75E-02
+     8 OT DIIS     0.15E+00    0.7     0.00001252     -8808.6920692512 -9.97E-03
+     9 OT DIIS     0.15E+00    0.7     0.00000891     -8808.6959107476 -3.84E-03
+
+  *** SCF run converged in     9 steps ***
+
+
+  Electronic density on regular grids:      -4096.0000081507       -0.0000081507
+  Core density on regular grids:             4095.9999999985       -0.0000000015
+  Total charge density on r-space grids:       -0.0000081522
+  Total charge density g-space grids:          -0.0000081522
+
+  Overlap energy of the core charge distribution:               0.00003222726478
+  Self energy of the core charge distribution:             -22442.43995950839599
+  Core Hamiltonian energy:                                   6579.97334773826515
+  Hartree energy:                                            9178.11108750204767
+  Exchange-correlation energy:                              -2124.34041870679312
+
+  Total energy:                                             -8808.69591074761229
+
+ ENERGY| Total FORCE_EVAL ( QS ) energy [a.u.]:            -8808.697758488155159
+
+ MD| ***************************************************************************
+ MD| Step number                                                               3
+ MD| Time [fs]                                                          1.500000
+ MD| Conserved quantity [hartree]                            -0.880616479895E+04
+ MD| ---------------------------------------------------------------------------
+ MD|                                          Instantaneous             Averages
+ MD| CPU time per MD step [s]                     10.150372            48.736523
+ MD| Energy drift per atom [K]          -0.821810010415E+02  -0.545831480613E+02
+ MD| Potential energy [hartree]         -0.880869775849E+04  -0.880853282516E+04
+ MD| Kinetic energy [hartree]            0.253295953359E+01   0.237142852830E+01
+ MD| Temperature [K]                             347.380849           325.227800
+ MD| ***************************************************************************
+
+ Number of electrons:                                                       4096
+ Number of occupied orbitals:                                               2048
+ Number of molecular orbitals:                                              2048
+
+ Number of orbital functions:                                              20480
+ Number of independent orbital functions:                                  20480
+
+ Extrapolation method: PS Nth order
+ Extrapolation order:  3
+
+
+ SCF WAVEFUNCTION OPTIMIZATION
+
+  ----------------------------------- OT ---------------------------------------
+  Minimizer      : DIIS                : direct inversion
+                                         in the iterative subspace
+                                         using   7 DIIS vectors
+                                         safer DIIS on
+  Preconditioner : FULL_KINETIC        : inversion of T + eS
+  Precond_solver : DEFAULT
+  stepsize       :    0.15000000                  energy_gap     :    0.20000000
+  eps_taylor     :   0.10000E-15                  max_taylor     :             4
+  ----------------------------------- OT ---------------------------------------
+
+  Step     Update method      Time    Convergence         Total energy    Change
+  ------------------------------------------------------------------------------
+     1 OT DIIS     0.15E+00    2.1     0.00008300     -8808.7601023161 -8.81E+03
+     2 OT DIIS     0.15E+00    0.5     0.00005686     -8808.7956198655 -3.55E-02
+     3 OT DIIS     0.15E+00    0.5     0.00003614     -8808.8258145304 -3.02E-02
+     4 OT DIIS     0.15E+00    0.5     0.00002270     -8808.8440348953 -1.82E-02
+     5 OT DIIS     0.15E+00    0.5     0.00001489     -8808.8523330675 -8.30E-03
+     6 OT DIIS     0.15E+00    0.5     0.00000969     -8808.8563578005 -4.02E-03
+
+  *** SCF run converged in     6 steps ***
+
+
+  Electronic density on regular grids:      -4096.0000085820       -0.0000085820
+  Core density on regular grids:             4096.0000000009        0.0000000009
+  Total charge density on r-space grids:       -0.0000085811
+  Total charge density g-space grids:          -0.0000085811
+
+  Overlap energy of the core charge distribution:               0.00002346614263
+  Self energy of the core charge distribution:             -22442.43995950839599
+  Core Hamiltonian energy:                                   6564.27157800586428
+  Hartree energy:                                            9189.38286671476089
+  Exchange-correlation energy:                              -2120.07086647891629
+
+  Total energy:                                             -8808.85635780054508
+
+ ENERGY| Total FORCE_EVAL ( QS ) energy [a.u.]:            -8808.858124056736415
+
+ MD| ***************************************************************************
+ MD| Step number                                                               4
+ MD| Time [fs]                                                          2.000000
+ MD| Conserved quantity [hartree]                            -0.880616980216E+04
+ MD| ---------------------------------------------------------------------------
+ MD|                                          Instantaneous             Averages
+ MD| CPU time per MD step [s]                      7.633863            38.460858
+ MD| Energy drift per atom [K]          -0.832095729607E+02  -0.617397542861E+02
+ MD| Potential energy [hartree]         -0.880885812406E+04  -0.880861414989E+04
+ MD| Kinetic energy [hartree]            0.268832189347E+01   0.245065186960E+01
+ MD| Temperature [K]                             368.687904           336.092826
+ MD| ***************************************************************************
+
+ Number of electrons:                                                       4096
+ Number of occupied orbitals:                                               2048
+ Number of molecular orbitals:                                              2048
+
+ Number of orbital functions:                                              20480
+ Number of independent orbital functions:                                  20480
+
+ Extrapolation method: PS Nth order
+ Extrapolation order:  3
+
+
+ SCF WAVEFUNCTION OPTIMIZATION
+
+  ----------------------------------- OT ---------------------------------------
+  Minimizer      : DIIS                : direct inversion
+                                         in the iterative subspace
+                                         using   7 DIIS vectors
+                                         safer DIIS on
+  Preconditioner : FULL_KINETIC        : inversion of T + eS
+  Precond_solver : DEFAULT
+  stepsize       :    0.15000000                  energy_gap     :    0.20000000
+  eps_taylor     :   0.10000E-15                  max_taylor     :             4
+  ----------------------------------- OT ---------------------------------------
+
+  Step     Update method      Time    Convergence         Total energy    Change
+  ------------------------------------------------------------------------------
+     1 OT DIIS     0.15E+00    2.1     0.00005398     -8808.8521906659 -8.81E+03
+     2 OT DIIS     0.15E+00    0.5     0.00004360     -8808.8685908465 -1.64E-02
+     3 OT DIIS     0.15E+00    0.7     0.00002876     -8808.8948210187 -2.62E-02
+     4 OT DIIS     0.15E+00    0.7     0.00002104     -8808.9082138516 -1.34E-02
+     5 OT DIIS     0.15E+00    0.7     0.00001317     -8808.9185206722 -1.03E-02
+     6 OT DIIS     0.15E+00    0.7     0.00000843     -8808.9223720000 -3.85E-03
+
+  *** SCF run converged in     6 steps ***
+
+
+  Electronic density on regular grids:      -4096.0000071800       -0.0000071800
+  Core density on regular grids:             4095.9999999999       -0.0000000001
+  Total charge density on r-space grids:       -0.0000071801
+  Total charge density g-space grids:          -0.0000071801
+
+  Overlap energy of the core charge distribution:               0.00001548084171
+  Self energy of the core charge distribution:             -22442.43995950839599
+  Core Hamiltonian energy:                                   6547.40961603502274
+  Hartree energy:                                            9201.58656651475394
+  Exchange-correlation energy:                              -2115.47861052224835
+
+  Total energy:                                             -8808.92237200002637
+
+ ENERGY| Total FORCE_EVAL ( QS ) energy [a.u.]:            -8808.923935036666080
+
+ MD| ***************************************************************************
+ MD| Step number                                                               5
+ MD| Time [fs]                                                          2.500000
+ MD| Conserved quantity [hartree]                            -0.880617229038E+04
+ MD| ---------------------------------------------------------------------------
+ MD|                                          Instantaneous             Averages
+ MD| CPU time per MD step [s]                      8.541368            32.476960
+ MD| Energy drift per atom [K]          -0.837211056600E+02  -0.661360245609E+02
+ MD| Potential energy [hartree]         -0.880892393504E+04  -0.880867610692E+04
+ MD| Kinetic energy [hartree]            0.275164466153E+01   0.251085042798E+01
+ MD| Temperature [K]                             377.372258           344.348712
+ MD| ***************************************************************************
+
+ Number of electrons:                                                       4096
+ Number of occupied orbitals:                                               2048
+ Number of molecular orbitals:                                              2048
+
+ Number of orbital functions:                                              20480
+ Number of independent orbital functions:                                  20480
+
+ Extrapolation method: PS Nth order
+ Extrapolation order:  3
+
+
+ SCF WAVEFUNCTION OPTIMIZATION
+
+  ----------------------------------- OT ---------------------------------------
+  Minimizer      : DIIS                : direct inversion
+                                         in the iterative subspace
+                                         using   7 DIIS vectors
+                                         safer DIIS on
+  Preconditioner : FULL_KINETIC        : inversion of T + eS
+  Precond_solver : DEFAULT
+  stepsize       :    0.15000000                  energy_gap     :    0.20000000
+  eps_taylor     :   0.10000E-15                  max_taylor     :             4
+  ----------------------------------- OT ---------------------------------------
+
+  Step     Update method      Time    Convergence         Total energy    Change
+  ------------------------------------------------------------------------------
+     1 OT DIIS     0.15E+00    2.1     0.00004459     -8808.8152215528 -8.81E+03
+     2 OT DIIS     0.15E+00    0.5     0.00003657     -8808.8265174901 -1.13E-02
+     3 OT DIIS     0.15E+00    0.5     0.00002088     -8808.8466694774 -2.02E-02
+     4 OT DIIS     0.15E+00    0.5     0.00001310     -8808.8539212347 -7.25E-03
+     5 OT DIIS     0.15E+00    0.5     0.00000884     -8808.8567199983 -2.80E-03
+
+  *** SCF run converged in     5 steps ***
+
+
+  Electronic density on regular grids:      -4096.0000062625       -0.0000062625
+  Core density on regular grids:             4095.9999999983       -0.0000000017
+  Total charge density on r-space grids:       -0.0000062642
+  Total charge density g-space grids:          -0.0000062642
+
+  Overlap energy of the core charge distribution:               0.00000971625729
+  Self energy of the core charge distribution:             -22442.43995950839599
+  Core Hamiltonian energy:                                   6531.17272517057245
+  Hartree energy:                                            9213.44168902428646
+  Exchange-correlation energy:                              -2111.03118440104117
+
+  Total energy:                                             -8808.85671999832266
+
+ ENERGY| Total FORCE_EVAL ( QS ) energy [a.u.]:            -8808.858096121042763
+
+ MD| ***************************************************************************
+ MD| Step number                                                               6
+ MD| Time [fs]                                                          3.000000
+ MD| Conserved quantity [hartree]                            -0.880617011407E+04
+ MD| ---------------------------------------------------------------------------
+ MD|                                          Instantaneous             Averages
+ MD| CPU time per MD step [s]                      6.963210            28.224669
+ MD| Energy drift per atom [K]          -0.832736952159E+02  -0.689923030034E+02
+ MD| Potential energy [hartree]         -0.880885809612E+04  -0.880870643845E+04
+ MD| Kinetic energy [hartree]            0.268798205248E+01   0.254037236540E+01
+ MD| Temperature [K]                             368.641297           348.397476
+ MD| ***************************************************************************
+
+ Number of electrons:                                                       4096
+ Number of occupied orbitals:                                               2048
+ Number of molecular orbitals:                                              2048
+
+ Number of orbital functions:                                              20480
+ Number of independent orbital functions:                                  20480
+
+ Extrapolation method: PS Nth order
+ Extrapolation order:  3
+
+
+ SCF WAVEFUNCTION OPTIMIZATION
+
+  ----------------------------------- OT ---------------------------------------
+  Minimizer      : DIIS                : direct inversion
+                                         in the iterative subspace
+                                         using   7 DIIS vectors
+                                         safer DIIS on
+  Preconditioner : FULL_KINETIC        : inversion of T + eS
+  Precond_solver : DEFAULT
+  stepsize       :    0.15000000                  energy_gap     :    0.20000000
+  eps_taylor     :   0.10000E-15                  max_taylor     :             4
+  ----------------------------------- OT ---------------------------------------
+
+  Step     Update method      Time    Convergence         Total energy    Change
+  ------------------------------------------------------------------------------
+     1 OT DIIS     0.15E+00    2.1     0.00004551     -8808.6384763228 -8.81E+03
+     2 OT DIIS     0.15E+00    0.5     0.00003729     -8808.6502432386 -1.18E-02
+     3 OT DIIS     0.15E+00    0.5     0.00002023     -8808.6710753816 -2.08E-02
+     4 OT DIIS     0.15E+00    0.5     0.00001308     -8808.6771450075 -6.07E-03
+     5 OT DIIS     0.15E+00    0.5     0.00000755     -8808.6802141101 -3.07E-03
+
+  *** SCF run converged in     5 steps ***
+
+
+  Electronic density on regular grids:      -4096.0000050933       -0.0000050933
+  Core density on regular grids:             4095.9999999989       -0.0000000011
+  Total charge density on r-space grids:       -0.0000050945
+  Total charge density g-space grids:          -0.0000050945
+
+  Overlap energy of the core charge distribution:               0.00000622092128
+  Self energy of the core charge distribution:             -22442.43995950839599
+  Core Hamiltonian energy:                                   6517.03118056709354
+  Hartree energy:                                            9223.86272578488206
+  Exchange-correlation energy:                              -2107.13416717457676
+
+  Total energy:                                             -8808.68021411007430
+
+ ENERGY| Total FORCE_EVAL ( QS ) energy [a.u.]:            -8808.681147743180190
+
+ MD| ***************************************************************************
+ MD| Step number                                                               7
+ MD| Time [fs]                                                          3.500000
+ MD| Conserved quantity [hartree]                            -0.880616595826E+04
+ MD| ---------------------------------------------------------------------------
+ MD|                                          Instantaneous             Averages
+ MD| CPU time per MD step [s]                      6.852712            25.171532
+ MD| Energy drift per atom [K]          -0.824193341311E+02  -0.709104503074E+02
+ MD| Potential energy [hartree]         -0.880868114774E+04  -0.880870282549E+04
+ MD| Kinetic energy [hartree]            0.251518948204E+01   0.253677481063E+01
+ MD| Temperature [K]                             344.943789           347.904092
+ MD| ***************************************************************************
+
+ Number of electrons:                                                       4096
+ Number of occupied orbitals:                                               2048
+ Number of molecular orbitals:                                              2048
+
+ Number of orbital functions:                                              20480
+ Number of independent orbital functions:                                  20480
+
+ Extrapolation method: PS Nth order
+ Extrapolation order:  3
+
+
+ SCF WAVEFUNCTION OPTIMIZATION
+
+  ----------------------------------- OT ---------------------------------------
+  Minimizer      : DIIS                : direct inversion
+                                         in the iterative subspace
+                                         using   7 DIIS vectors
+                                         safer DIIS on
+  Preconditioner : FULL_KINETIC        : inversion of T + eS
+  Precond_solver : DEFAULT
+  stepsize       :    0.15000000                  energy_gap     :    0.20000000
+  eps_taylor     :   0.10000E-15                  max_taylor     :             4
+  ----------------------------------- OT ---------------------------------------
+
+  Step     Update method      Time    Convergence         Total energy    Change
+  ------------------------------------------------------------------------------
+     1 OT DIIS     0.15E+00    2.1     0.00004640     -8808.4083498848 -8.81E+03
+     2 OT DIIS     0.15E+00    0.5     0.00003771     -8808.4205192270 -1.22E-02
+     3 OT DIIS     0.15E+00    0.5     0.00002094     -8808.4409405879 -2.04E-02
+     4 OT DIIS     0.15E+00    0.5     0.00001360     -8808.4479497027 -7.01E-03
+     5 OT DIIS     0.15E+00    0.5     0.00001073     -8808.4504245322 -2.47E-03
+     6 OT DIIS     0.15E+00    0.5     0.00000737     -8808.4530066067 -2.58E-03
+
+  *** SCF run converged in     6 steps ***
+
+
+  Electronic density on regular grids:      -4096.0000038469       -0.0000038469
+  Core density on regular grids:             4096.0000000008        0.0000000008
+  Total charge density on r-space grids:       -0.0000038460
+  Total charge density g-space grids:          -0.0000038460
+
+  Overlap energy of the core charge distribution:               0.00000436187184
+  Self energy of the core charge distribution:             -22442.43995950839599
+  Core Hamiltonian energy:                                   6506.06509236325110
+  Hartree energy:                                            9232.01158669134566
+  Exchange-correlation energy:                              -2104.08973051476642
+
+  Total energy:                                             -8808.45300660669454
+
+ ENERGY| Total FORCE_EVAL ( QS ) energy [a.u.]:            -8808.454571351161576
+
+ MD| ***************************************************************************
+ MD| Step number                                                               8
+ MD| Time [fs]                                                          4.000000
+ MD| Conserved quantity [hartree]                            -0.880616115130E+04
+ MD| ---------------------------------------------------------------------------
+ MD|                                          Instantaneous             Averages
+ MD| CPU time per MD step [s]                      7.121790            22.915314
+ MD| Energy drift per atom [K]          -0.814311079988E+02  -0.722255325188E+02
+ MD| Potential energy [hartree]         -0.880845457135E+04  -0.880867179372E+04
+ MD| Kinetic energy [hartree]            0.229342004761E+01   0.250635546526E+01
+ MD| Temperature [K]                             314.529385           343.732254
+ MD| ***************************************************************************
+
+ Number of electrons:                                                       4096
+ Number of occupied orbitals:                                               2048
+ Number of molecular orbitals:                                              2048
+
+ Number of orbital functions:                                              20480
+ Number of independent orbital functions:                                  20480
+
+ Extrapolation method: PS Nth order
+ Extrapolation order:  3
+
+
+ SCF WAVEFUNCTION OPTIMIZATION
+
+  ----------------------------------- OT ---------------------------------------
+  Minimizer      : DIIS                : direct inversion
+                                         in the iterative subspace
+                                         using   7 DIIS vectors
+                                         safer DIIS on
+  Preconditioner : FULL_KINETIC        : inversion of T + eS
+  Precond_solver : DEFAULT
+  stepsize       :    0.15000000                  energy_gap     :    0.20000000
+  eps_taylor     :   0.10000E-15                  max_taylor     :             4
+  ----------------------------------- OT ---------------------------------------
+
+  Step     Update method      Time    Convergence         Total energy    Change
+  ------------------------------------------------------------------------------
+     1 OT DIIS     0.15E+00    2.1     0.00004050     -8808.2146954796 -8.81E+03
+     2 OT DIIS     0.15E+00    0.5     0.00003407     -8808.2241574377 -9.46E-03
